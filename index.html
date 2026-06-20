@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Прочайлов & Казаков — Два Тупых Качка</title>
+  <meta name="description" content="Максим Прочайлов и Григорий Казаков. Два тупых качка. Мозг на двоих — мышцы на десятерых." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Ambient blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-logo">M&G</div>
+    <div class="nav-links">
+      <a href="#hero"    class="nav-link">Главная</a>
+      <a href="#maxim"   class="nav-link">Максим</a>
+      <a href="#gregory" class="nav-link">Григорий</a>
+      <a href="#together" class="nav-link">Вместе</a>
+      <a href="#contact" class="nav-link">Контакт</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge" id="heroBadge">
+        <span class="badge-dot"></span>
+        качают железо прямо сейчас
+      </div>
+
+      <h1 class="hero-title" id="heroTitle">
+        <span class="title-line">Два</span>
+        <span class="title-line accent-text">Тупых</span>
+        <span class="title-line">Качка</span>
+      </h1>
+
+      <div class="hero-meta" id="heroMeta">
+        <span class="meta-pill">💪 Прочайлов</span>
+        <span class="meta-pill">🔥 Казаков</span>
+        <span class="meta-pill">🧠 IQ: общий</span>
+        <span class="meta-pill">🏋️ Зал: всегда</span>
+      </div>
+
+      <p class="hero-desc" id="heroDesc">
+        Максим Прочайлов и Григорий Казаков.<br>
+        <strong>Русские Tren Twins.</strong> Мозг — один на двоих.<br>
+        Мышц — на целый спортзал.
+      </p>
+
+      <div class="hero-cta" id="heroCta">
+        <button class="btn-primary" id="ctaMaxim" onclick="document.getElementById('maxim').scrollIntoView({behavior:'smooth'})">
+          <span>Познакомиться</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-ghost" id="ctaTogether" onclick="document.getElementById('together').scrollIntoView({behavior:'smooth'})">
+          Наша банда
+        </button>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>скролл</span>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <div class="marquee-row">
+        <span>МАКСИМ ПРОЧАЙЛОВ</span><span class="dot">✦</span>
+        <span>ГРИГОРИЙ КАЗАКОВ</span><span class="dot">✦</span>
+        <span>ДВА ТУПЫХ КАЧКА</span><span class="dot">✦</span>
+        <span>РУССКИЕ TREN TWINS</span><span class="dot">✦</span>
+        <span>МОЗГ НА ДВОИХ</span><span class="dot">✦</span>
+        <span>МЫШЦ НА ДЕСЯТЕРЫХ</span><span class="dot">✦</span>
+        <span>МАКСИМ ПРОЧАЙЛОВ</span><span class="dot">✦</span>
+        <span>ГРИГОРИЙ КАЗАКОВ</span><span class="dot">✦</span>
+        <span>ДВА ТУПЫХ КАЧКА</span><span class="dot">✦</span>
+        <span>РУССКИЕ TREN TWINS</span><span class="dot">✦</span>
+        <span>МОЗГ НА ДВОИХ</span><span class="dot">✦</span>
+        <span>МЫШЦ НА ДЕСЯТЕРЫХ</span><span class="dot">✦</span>
+        <!-- duplicate -->
+        <span>МАКСИМ ПРОЧАЙЛОВ</span><span class="dot">✦</span>
+        <span>ГРИГОРИЙ КАЗАКОВ</span><span class="dot">✦</span>
+        <span>ДВА ТУПЫХ КАЧКА</span><span class="dot">✦</span>
+        <span>РУССКИЕ TREN TWINS</span><span class="dot">✦</span>
+        <span>МОЗГ НА ДВОИХ</span><span class="dot">✦</span>
+        <span>МЫШЦ НА ДЕСЯТЕРЫХ</span><span class="dot">✦</span>
+        <span>МАКСИМ ПРОЧАЙЛОВ</span><span class="dot">✦</span>
+        <span>ГРИГОРИЙ КАЗАКОВ</span><span class="dot">✦</span>
+        <span>ДВА ТУПЫХ КАЧКА</span><span class="dot">✦</span>
+        <span>РУССКИЕ TREN TWINS</span><span class="dot">✦</span>
+        <span>МОЗГ НА ДВОИХ</span><span class="dot">✦</span>
+        <span>МЫШЦ НА ДЕСЯТЕРЫХ</span><span class="dot">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MAXIM ── -->
+  <section class="section profile-section" id="maxim">
+    <div class="container">
+      <p class="section-label">// участник #01</p>
+      <div class="profile-layout">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar profile-avatar--maxim">
+            <span class="profile-emoji">🦍</span>
+            <div class="profile-num">01</div>
+          </div>
+          <div class="profile-glow profile-glow--blue"></div>
+        </div>
+        <div class="profile-info">
+          <h2 class="section-title">Максим<br><span class="accent-text accent-blue">Прочайлов</span></h2>
+          <p class="profile-desc">
+            Человек, у которого план на день — это «жим, потом ещё раз жим, потом думать». Думать не получается, потому что снова жим. Живёт в зале. Буквально.
+          </p>
+          <div class="profile-stats">
+            <div class="pstat">
+              <div class="pstat-val" data-target="100">0</div>
+              <div class="pstat-lbl">% в зале</div>
+              <div class="stat-track"><div class="stat-bar" style="--w:100%"></div></div>
+            </div>
+            <div class="pstat">
+              <div class="pstat-val" data-target="0">0</div>
+              <div class="pstat-lbl">IQ (измерить не смогли)</div>
+              <div class="stat-track"><div class="stat-bar" style="--w:5%"></div></div>
+            </div>
+            <div class="pstat">
+              <div class="pstat-val" data-target="999">0</div>
+              <div class="pstat-lbl">кг самомнения</div>
+              <div class="stat-track"><div class="stat-bar" style="--w:99%"></div></div>
+            </div>
+          </div>
+          <div class="profile-tags">
+            <span class="ptag">🏋️ жим</span>
+            <span class="ptag">🦍 горилла</span>
+            <span class="ptag">😤 сопит</span>
+            <span class="ptag">💪 бицуха</span>
+            <span class="ptag">🧠 отсутствует</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block quote-block--maxim">
+        <span class="quote-icon">💬</span>
+        <p class="quote-text">«Щас допожму и отвечу»</p>
+        <span class="quote-author">— Максим, никогда не ответил</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GREGORY ── -->
+  <section class="section profile-section profile-section--alt" id="gregory">
+    <div class="container">
+      <p class="section-label">// участник #02</p>
+      <div class="profile-layout profile-layout--reverse">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar profile-avatar--gregory">
+            <span class="profile-emoji">💪</span>
+            <div class="profile-num">02</div>
+          </div>
+          <div class="profile-glow profile-glow--purple"></div>
+        </div>
+        <div class="profile-info">
+          <h2 class="section-title">Григорий<br><span class="accent-text">Казаков</span></h2>
+          <p class="profile-desc">
+            Думает, что умнее Максима. Не умнее Максима. Но зато говорит громче и уверенней — значит прав. Заходит в зал как на сцену, уходит как победитель (иногда даже что-то пожал).
+          </p>
+          <div class="profile-stats">
+            <div class="pstat">
+              <div class="pstat-val" data-target="23">0</div>
+              <div class="pstat-lbl">лет от роду</div>
+              <div class="stat-track"><div class="stat-bar" style="--w:23%"></div></div>
+            </div>
+            <div class="pstat">
+              <div class="pstat-val" data-target="100">0</div>
+              <div class="pstat-lbl">% харизмы</div>
+              <div class="stat-track"><div class="stat-bar" style="--w:100%"></div></div>
+            </div>
+            <div class="pstat">
+              <div class="pstat-val" data-target="69">0</div>
+              <div class="pstat-lbl">пошлых шуток в день</div>
+              <div class="stat-track"><div class="stat-bar" style="--w:69%"></div></div>
+            </div>
+          </div>
+          <div class="profile-tags">
+            <span class="ptag">🔥 горячий</span>
+            <span class="ptag">😏 самоуверенный</span>
+            <span class="ptag">🎯 честный</span>
+            <span class="ptag">💬 болтает</span>
+            <span class="ptag">🍾 праздник</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block quote-block--gregory">
+        <span class="quote-icon">💬</span>
+        <p class="quote-text">«Я умный, просто не показываю»</p>
+        <span class="quote-author">— Григорий, показывает каждый день</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TOGETHER / GANG ── -->
+  <section class="section" id="together">
+    <div class="container">
+      <p class="section-label">// банда</p>
+      <h2 class="section-title">Вместе <span class="accent-text">непобедимы</span></h2>
+
+      <div class="vs-section">
+        <div class="vs-card vs-card--maxim">
+          <div class="vs-avatar"><span>🦍</span></div>
+          <h3>Прочайлов</h3>
+          <p>Молчит. Жмёт.</p>
+          <ul class="vs-list">
+            <li>✅ Пожимает</li>
+            <li>✅ Сопит</li>
+            <li>✅ Ест</li>
+            <li>❌ Думает</li>
+            <li>❌ Говорит связно</li>
+          </ul>
+        </div>
+
+        <div class="vs-center">
+          <div class="vs-text">VS</div>
+          <div class="vs-note">на самом деле<br>лучшие друзья</div>
+          <div class="vs-heart">🤝</div>
+        </div>
+
+        <div class="vs-card vs-card--gregory">
+          <div class="vs-avatar"><span>💪</span></div>
+          <h3>Казаков</h3>
+          <p>Говорит. Тоже жмёт.</p>
+          <ul class="vs-list">
+            <li>✅ Пожимает</li>
+            <li>✅ Говорит</li>
+            <li>✅ Харизма ✨</li>
+            <li>❌ Думает (тоже)</li>
+            <li>❌ Слушает других</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Дурацкие факты -->
+      <div class="facts-grid">
+        <div class="fact-card">
+          <span class="fact-icon">🧠</span>
+          <h4>Один мозг</h4>
+          <p>Суммарный IQ делится поровну — по нулю каждому</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-icon">💪</span>
+          <h4>Двойная сила</h4>
+          <p>Суммарный вес на штанге — государственная тайна</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-icon">🏋️</span>
+          <h4>Зал — дом</h4>
+          <p>Квартира нужна только чтобы спать между тренировками</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-icon">🍗</span>
+          <h4>Питание</h4>
+          <p>Курица, рис, протеин. Снова курица. Потом снова</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-icon">📸</span>
+          <h4>Фото в зале</h4>
+          <p>Зеркало в раздевалке видело их больше, чем родители</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-icon">🎯</span>
+          <h4>Цель в жизни</h4>
+          <p>Стать больше. Смысл не найден, но бицуха растёт</p>
+        </div>
+      </div>
+
+      <!-- Большая цитата -->
+      <div class="big-quote">
+        <div class="big-quote-marks">"</div>
+        <p>Мозг нам не нужен — у нас есть мышцы.<br>А у мышц своя логика.</p>
+        <span>— Прочайлов & Казаков, совместное заявление</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE обратный ── -->
+  <div class="marquee-wrap marquee-wrap--reverse">
+    <div class="marquee-inner">
+      <div class="marquee-row marquee-row--rev">
+        <span>ЖАТЬ</span><span class="dot">💪</span>
+        <span>ЕСТЬ</span><span class="dot">🍗</span>
+        <span>СПАТЬ</span><span class="dot">😴</span>
+        <span>ЖАТЬ</span><span class="dot">💪</span>
+        <span>НЕ ДУМАТЬ</span><span class="dot">🧠</span>
+        <span>ЖАТЬ</span><span class="dot">💪</span>
+        <span>ЕСТЬ</span><span class="dot">🍗</span>
+        <span>СПАТЬ</span><span class="dot">😴</span>
+        <span>ЖАТЬ</span><span class="dot">💪</span>
+        <span>НЕ ДУМАТЬ</span><span class="dot">🧠</span>
+        <!-- duplicate -->
+        <span>ЖАТЬ</span><span class="dot">💪</span>
+        <span>ЕСТЬ</span><span class="dot">🍗</span>
+        <span>СПАТЬ</span><span class="dot">😴</span>
+        <span>ЖАТЬ</span><span class="dot">💪</span>
+        <span>НЕ ДУМАТЬ</span><span class="dot">🧠</span>
+        <span>ЖАТЬ</span><span class="dot">💪</span>
+        <span>ЕСТЬ</span><span class="dot">🍗</span>
+        <span>СПАТЬ</span><span class="dot">😴</span>
+        <span>ЖАТЬ</span><span class="dot">💪</span>
+        <span>НЕ ДУМАТЬ</span><span class="dot">🧠</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <section class="section" id="contact">
+    <div class="container contact-center">
+      <p class="section-label">// связь</p>
+      <h2 class="section-title">Написать <span class="accent-text">качкам</span></h2>
+      <p class="contact-sub">Если хочешь поговорить с умными людьми — не сюда.<br>Если хочешь поговорить с сильными — добро пожаловать.</p>
+
+      <div class="contact-twins">
+        <div class="contact-twin card">
+          <div class="ct-header">
+            <span class="ct-emoji">🦍</span>
+            <div>
+              <div class="ct-name">Максим</div>
+              <div class="ct-note">ответит после тренировки (никогда)</div>
+            </div>
+          </div>
+          <div class="ct-socials">
+            <a href="#" class="social-pill" id="maxTg">📱 Telegram Макса</a>
+            <a href="#" class="social-pill" id="maxIg">📸 Инста Макса</a>
+          </div>
+        </div>
+
+        <div class="contact-twin card">
+          <div class="ct-header">
+            <span class="ct-emoji">💪</span>
+            <div>
+              <div class="ct-name">Григорий</div>
+              <div class="ct-note">ответит сразу (говорит много)</div>
+            </div>
+          </div>
+          <div class="ct-socials">
+            <a href="#" class="social-pill" id="griTg">📱 Telegram Гриши</a>
+            <a href="#" class="social-pill" id="griIg">📸 Инста Гриши</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card card">
+        <div class="form-stack">
+          <input type="text" id="nameInput" class="form-input" placeholder="Твоё имя" autocomplete="off" />
+          <textarea id="msgInput" class="form-input form-textarea" placeholder="Напиши что-нибудь... (они всё равно в зале)" rows="4"></textarea>
+          <button class="btn-primary btn-block" id="sendBtn" onclick="handleSend()">
+            <span>Отправить</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-in">
+      <span class="footer-logo">M&G</span>
+      <p>© 2024 Прочайлов & Казаков. Мышцы настоящие. Мозг — под вопросом.</p>
+      <span>made with 💪</span>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span>🏋️</span>
+    <span id="toastMsg">Отправлено!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
