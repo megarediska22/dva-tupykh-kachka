@@ -1,26 +1,6 @@
 /* app.js — Два Тупых Качка */
 gsap.registerPlugin(ScrollTrigger);
 
-// Cursor
-const cur = document.getElementById('cursor');
-const fol = document.getElementById('cursorFollower');
-let mx = window.innerWidth/2, my = window.innerHeight/2, fx = mx, fy = my, cursorVisible = false;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cur.style.left = mx+'px'; cur.style.top = my+'px';
-  if (!cursorVisible) { cursorVisible = true; gsap.to(fol, { opacity:1, duration:.3 }); }
-});
-(function tickFol() {
-  fx += (mx-fx)*.11; fy += (my-fy)*.11;
-  fol.style.left = fx+'px'; fol.style.top = fy+'px';
-  requestAnimationFrame(tickFol);
-})();
-document.querySelectorAll('a,button,.card,.meta-pill,.ptag,.social-pill,.vs-card,.fact-card').forEach(el => {
-  el.addEventListener('mouseenter', () => { cur.classList.add('hovered'); fol.classList.add('hovered'); });
-  el.addEventListener('mouseleave', () => { cur.classList.remove('hovered'); fol.classList.remove('hovered'); });
-});
-
 // Particles
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
@@ -125,34 +105,4 @@ document.querySelectorAll('.marquee-row').forEach(mrow => {
   mrow.addEventListener('mouseleave', () => { mrow.style.animationPlayState='running'; gsap.to(mrow,{color:'rgba(255,255,255,.4)',duration:.3}); });
 });
 
-// Profile avatar bounce on scroll
-gsap.from('.profile-avatar', {
-  scale:.7, opacity:0, duration:.8, ease:'back.out(1.6)',
-  scrollTrigger:{trigger:'#maxim',start:'top 80%'}
-});
-
-// Form
-window.handleSend = function() {
-  const name=document.getElementById('nameInput').value.trim();
-  const msg=document.getElementById('msgInput').value.trim();
-  const btn=document.getElementById('sendBtn');
-  if(!name||!msg) {
-    gsap.to('.contact-card',{x:[-10,10,-8,8,-5,5,0],duration:.4,ease:'none'});
-    return;
-  }
-  btn.disabled=true; btn.querySelector('span').textContent='Отправляем... 🚀';
-  setTimeout(() => {
-    document.getElementById('nameInput').value='';
-    document.getElementById('msgInput').value='';
-    btn.disabled=false; btn.querySelector('span').textContent='Отправить';
-    const toast=document.getElementById('toast');
-    const who=Math.random()>.5?'Максим ещё в зале':'Гриша уже читает 👀';
-    document.getElementById('toastMsg').textContent=`${name}, ${who}`;
-    toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),3600);
-  },1300);
-};
-
-// Page in
-document.body.style.opacity='0';
-gsap.to(document.body,{opacity:1,duration:.7,ease:'power2.out'});
 console.log('%c💪 Прочайлов & Казаков в деле!','font-size:22px;color:#a855f7;font-weight:bold;');
