@@ -12,8 +12,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -135,7 +135,7 @@
             <div class="profile-num">01</div>
           </div>
           <div class="profile-glow profile-glow--blue"></div>
-          <a href="https://t.me/MVXIMokda" target="_blank" class="profile-tg-btn profile-tg-btn--maxim">
+          <a href="https://t.me/MVXIMokda" target="_blank" rel="noopener noreferrer" class="profile-tg-btn profile-tg-btn--maxim">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z" />
@@ -208,7 +208,7 @@
             <div class="profile-num">02</div>
           </div>
           <div class="profile-glow profile-glow--purple"></div>
-          <a href="https://t.me/Gregory_115" target="_blank" class="profile-tg-btn profile-tg-btn--gregory">
+          <a href="https://t.me/Gregory_115" target="_blank" rel="noopener noreferrer" class="profile-tg-btn profile-tg-btn--gregory">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z" />
@@ -405,7 +405,7 @@
             </div>
           </div>
           <div class="ct-socials">
-            <a href="https://t.me/MVXIMokda" target="_blank" class="social-pill social-pill--tg" id="maxTg">📱 Telegram
+            <a href="https://t.me/MVXIMokda" target="_blank" rel="noopener noreferrer" class="social-pill social-pill--tg" id="maxTg">📱 Telegram
               Макса</a>
           </div>
         </div>
@@ -419,9 +419,9 @@
             </div>
           </div>
           <div class="ct-socials">
-            <a href="https://t.me/Gregory_115" target="_blank" class="social-pill social-pill--tg" id="griTg">📱
+            <a href="https://t.me/Gregory_115" target="_blank" rel="noopener noreferrer" class="social-pill social-pill--tg" id="griTg">📱
               Telegram Гриши</a>
-            <a href="https://www.instagram.com/kazakov_gregory22/" target="_blank" class="social-pill social-pill--ig"
+            <a href="https://www.instagram.com/kazakov_gregory22/" target="_blank" rel="noopener noreferrer" class="social-pill social-pill--ig"
               id="griIg">📸 Instagram Гриши</a>
           </div>
         </div>
@@ -430,7 +430,7 @@
       <div class="contact-card card">
         <p class="contact-form-label">Или напиши напрямую — выбери кому:</p>
         <div class="contact-direct-btns">
-          <a href="https://t.me/MVXIMokda" target="_blank" class="btn-direct btn-direct--maxim" id="directMaxBtn">
+          <a href="https://t.me/MVXIMokda" target="_blank" rel="noopener noreferrer" class="btn-direct btn-direct--maxim" id="directMaxBtn">
             <span class="btn-direct-emoji">🦍</span>
             <div>
               <div class="btn-direct-name">Максиму</div>
@@ -441,7 +441,7 @@
                 d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z" />
             </svg>
           </a>
-          <a href="https://t.me/Gregory_115" target="_blank" class="btn-direct btn-direct--gregory" id="directGriBtn">
+          <a href="https://t.me/Gregory_115" target="_blank" rel="noopener noreferrer" class="btn-direct btn-direct--gregory" id="directGriBtn">
             <span class="btn-direct-emoji">💪</span>
             <div>
               <div class="btn-direct-name">Грише</div>
@@ -472,7 +472,7 @@
     <span id="toastMsg">Отправлено!</span>
   </div>
 
-  <script src="app.js"></script>
+  <script defer src="app.js"></script>
 </body>
 
 </html>

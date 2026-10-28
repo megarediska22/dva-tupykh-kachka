@@ -13,6 +13,7 @@ html{scroll-behavior:smooth}
 body{background:var(--c-bg);color:var(--c-white);font-family:var(--f-body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 button{cursor:none;border:none;outline:none}
+button:focus-visible,a:focus-visible{outline:2px solid var(--c-teal);outline-offset:4px}
 
 /* Canvas & Blobs */
 #particleCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.55}
@@ -255,4 +256,17 @@ button{cursor:none;border:none;outline:none}
   .vs-card{padding:24px 16px}
   .btn-direct{padding:14px 18px;border-radius:14px}
   .btn-direct-emoji{font-size:1.6rem}
+}
+
+@media (hover:none), (pointer:coarse){
+  body,button{cursor:auto}
+  .cursor,.cursor-follower{display:none}
+  #particleCanvas{display:none}
+  .blob{filter:blur(70px);animation:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  #particleCanvas,.cursor,.cursor-follower{display:none}
 }
